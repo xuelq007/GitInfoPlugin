@@ -97,3 +97,23 @@ Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 该插件支持webpack4及以上.
 
 it supports webpack4 or above.
+
+## 依赖 (Dependency)
+
+在成功运行GitInfoPlugin之前，在webpack.config中需要有关于HtmlWebpackPlugin配置。
+
+The plugin runs based on webpack HtmlWebpackPlugin.
+
+```javascript
+const GitInfoPlugin = require('git-info-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin({
+            template: './src/index.html'
+    }),
+    new GitInfoPlugin()
+  ]
+}
+```
