@@ -1,6 +1,7 @@
 # GitInfoPlugin
 
 [![Build Status](https://travis-ci.org/xuelq007/GitInfoPlugin.svg?branch=master)](https://travis-ci.org/xuelq007/GitInfoPlugin)
+[![npm version](https://badge.fury.io/js/git-info-plugin.svg)](https://badge.fury.io/js/git-info-plugin)
 
 一个非常简单的 [webpack4](https://webpack.js.org/) 插件，用于快速查看本地build的git信息，用于快速定位当前build是基于哪次提交。
 ## 使用
