@@ -10,7 +10,11 @@
     "node": ">=7"
   },
   "author": "xueliqiang<xuelq1988@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xuelq007/GitInfoPlugin.git"
+  }
   "devDependencies": {
     "eslint": "^5.4.0",
     "webpack": "^4.1.1"
