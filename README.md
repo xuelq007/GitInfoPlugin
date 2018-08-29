@@ -80,6 +80,7 @@ Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode
 
 
 需要注意的是`hotKey`中的分隔符应和hotKeyDelimiter中的配置保持一致。
+
 Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`
 
 
