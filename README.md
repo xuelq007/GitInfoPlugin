@@ -6,13 +6,13 @@
 ## 使用
 
 ```bash
-npm install --save-dev git-info-webpack-plugin
+npm install --save-dev git-info-plugin
 ```
 
 然后在webpack.config中按照如下配置：
 
 ```javascript
-var GitInfoPlugin = require('git-info-webpack-plugin')
+var GitInfoPlugin = require('git-info-plugin')
 
 module.exports = {
   plugins: [
