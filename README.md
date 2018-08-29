@@ -121,13 +121,17 @@ module.exports = {
 ## TODO
 
 1. 插件容错：如果用户输入了错误的配置，需要停止编译并提示失败
+
    catch compile error and provide error info
 
 2. 可以支持展示更多的git info
+
    support more git info
 
 3. 支持将用户想要的git info导出到一个文件
+
    ability to export git info to a file
 
 4. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
+
    remove dependent on HtmlWebpackPlugin (hook in HtmlWebpackPlugin  is needed in GitInfoPlugin)
