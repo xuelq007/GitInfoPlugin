@@ -1,0 +1,17 @@
+{
+  "name": "git-info-plugin",
+  "version": "1.0.0",
+  "description": "it's a webpack4 plugin to help developers get git info in current build ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=7"
+  },
+  "author": "xueliqiang<xuelq1988@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.1.1"
+  }
+}
