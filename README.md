@@ -4,7 +4,10 @@
 [![npm version](https://badge.fury.io/js/git-info-plugin.svg)](https://badge.fury.io/js/git-info-plugin)
 
 一个非常简单的 [webpack4](https://webpack.js.org/) 插件，用于快速查看本地build的git信息，用于快速定位当前build是基于哪次提交。
-## 使用
+
+A very simple webpack4 plugin which is used to check git info of local build. it helps developers know current build is based on which commition.
+
+## 使用(Usage)
 
 ```bash
 npm install --save-dev git-info-plugin
@@ -24,6 +27,8 @@ module.exports = {
 
 构建完成后，打开网页，输入快捷键(默认ctrl + shift + Enter)，打开浏览器开发者工具，可以看到当前build的最新一次git commit id.
 
+open webpage and input default shortcut (ctrl + shift + enter), then open develper tools (chrome, firefox etc..). you could see newest commition id in console: 
+
 ```
 c698cec1c6c22641692c716535dfcb21492c41ed
 ```
@@ -41,15 +46,17 @@ c698cec1 - xueliqiang, 2 days ago : 优化项目代码
 ```
 
 
-## 配置
+## 配置 (Config)
 
 插件有默认配置，用户可不必自行填写。 默认配置如下：
+
+Default config is below:
 
 ```javascript
 module.exports = {
   plugins: [
     new GitInfoPlugin({
-        hotKey: 'ctrl+shift+65',
+        hotKey: 'ctrl+shift+13',
         hotKeyDelimiter: '+',
         info: 'detail'
     }
@@ -61,6 +68,7 @@ module.exports = {
 
 快捷键分隔符，默认为'+'，用户可自行设置为‘～’，‘¥’ 等等。
 
+user could add custom hotkey delimiter like '#','%' etc..
 
 
 ### `hotKey: 'ctrl+shift+13'`
@@ -68,7 +76,11 @@ module.exports = {
 通过设置`hotKey`用户可自定义快捷键以免与项目已有快捷键冲突。目前支持的快捷方式是Ctrl或Shift或Alt任意组合再加键盘的keyCode，
 比如回车键(Enter)的keyCode是13.
 
+Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode. for example: ctrl+shift+13 (13 is Enter keyCode).
+
+
 需要注意的是`hotKey`中的分隔符应和hotKeyDelimiter中的配置保持一致。
+Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`
 
 
 
@@ -76,8 +88,11 @@ module.exports = {
 
 通过`info`配置，用户可选择项目中展示的info信息。目前支持'id', 'branch'以及'detail'三种形式。
 
+Currently, it supports 3 types of info. 'id', 'branch' and 'detail'
 
 
-## 版本支持
+## 版本支持 (Webpack version)
 
-该插件支持webpack4及以上
+该插件支持webpack4及以上.
+
+it supports webpack4 or above.
