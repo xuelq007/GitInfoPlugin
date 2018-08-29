@@ -89,7 +89,7 @@ Note: the delimiter in config `hotKey` should be consistent with that in config 
 
 通过`info`配置，用户可选择项目中展示的info信息。目前支持'id', 'branch'以及'detail'三种形式。
 
-Currently, it supports 3 types of info. 'id', 'branch' and 'detail'
+Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 
 
 ## 版本支持 (Webpack version)
