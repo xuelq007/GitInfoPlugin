@@ -4,7 +4,7 @@
   "description": "it's a webpack4 plugin to help developers get git info in current build ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
   "engines": {
     "node": ">=7"
@@ -12,6 +12,7 @@
   "author": "xueliqiang<xuelq1988@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.4.0",
     "webpack": "^4.1.1"
   }
 }
