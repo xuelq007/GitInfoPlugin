@@ -135,6 +135,10 @@ Edge
 
 Not support IE <= 10
 
+这是个方便开发人员的插件，所以并不需要兼容很多浏览器对吧？:sunglasses:
+
+It's just a plugin for developer, so we don't have to support old browsers, right ? :yum:
+
 
 ## TODO
 
