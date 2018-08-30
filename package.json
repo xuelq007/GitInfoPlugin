@@ -4,7 +4,7 @@
   "description": "it's a webpack4 plugin to help developers get git info in current build ",
   "main": "index.js",
   "scripts": {
-    "test": "",
+    "test": "./node_modules/.bin/eslint ./",
     "fix": "./node_modules/.bin/eslint ./ --fix"
   },
   "engines": {
