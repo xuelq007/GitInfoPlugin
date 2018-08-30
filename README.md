@@ -116,6 +116,8 @@ user could set custom git command through the option. Note that info options wil
 
 'both' means 'console' mode and 'file' mode are both available.
 
+example: { command: 'git status' }
+
 
 ## 版本支持 (Webpack version)
 
