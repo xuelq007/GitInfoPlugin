@@ -42,7 +42,7 @@ dev
 `detail`
 
 ```
-c698cec1 - xueliqiang, 2 days ago : 优化项目代码
+c698cec1 - lq007, 2 days ago : 优化项目代码
 ```
 
 
