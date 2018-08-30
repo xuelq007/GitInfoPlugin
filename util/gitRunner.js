@@ -10,8 +10,7 @@ GitRunner.prototype.run = function (compilation, command, options) {
     var self = this;
     var commandOutput = '';
     compilation.hooks.optimizeTree.tapAsync('optimize-tree', (chunks, modules, callback) => {
-        // var isCommandDangerous = self.isCommandDangerous(command);
-        var isCommandDangerous = false;
+        var isCommandDangerous = self.isCommandDangerous(command);
 
         if (!isCommandDangerous) {
             self.execCommand(command, (err, res) => {
@@ -22,11 +21,10 @@ GitRunner.prototype.run = function (compilation, command, options) {
 
                 callback();
             });
+        } else {
+            var errorMsg = `GitInfoPlugin: command '${command}' is dangerous (it only supports readonly command. operational command like 'pull','push','add','delete', 'merge' are not supported)`;
+            throw new Error(errorMsg);
         }
-        // else {
-        //     commandOutput = `Git Command ${command} is dangerous (We only support readonly command. operation command like 'pull','push','add','delete' etc.. are not supported)`;
-        //     exportRunner.export(compilation, options, commandOutput);
-        // }
     });
 
     compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
