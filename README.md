@@ -33,13 +33,13 @@ open webpage and input default shortcut (ctrl + shift + enter), then open develp
 c698cec1c6c22641692c716535dfcb21492c41ed
 ```
 
-branch
+`branch`
 
 ```
 dev
 ```
 
-detail
+`detail`
 
 ```
 c698cec1 - xueliqiang, 2 days ago : 优化项目代码
@@ -88,12 +88,12 @@ Note: the delimiter in config `hotKey` should be consistent with that in config 
 
 ### `info: 'id'`
 
-通过`info`配置，用户可选择项目中展示的info信息。目前支持'id', 'branch'以及'detail'三种形式。
+通过`info`配置，用户可选择项目中展示的info信息。目前支持`id`, `branch`以及`detail`三种形式。
 
-Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
+Currently, it supports 3 types of info: `id`, `branch` and `detail`
 
 
-### `show: console`
+### `show: 'console'`
 
 默认为`console`, 即git信息只有用快捷键通过开发者工具中的console显示。
 
