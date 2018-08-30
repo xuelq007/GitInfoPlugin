@@ -91,6 +91,11 @@ Note: the delimiter in config `hotKey` should be consistent with that in config 
 
 Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 
+### `file: false`
+
+是否将git信息导出到文件。默认为false，如果设置为true，git信息将会导出到文件gitInfo.md。
+
+if export git info to file (gitInfo.md). default value is false.
 
 ## 版本支持 (Webpack version)
 
@@ -118,6 +123,19 @@ module.exports = {
 }
 ```
 
+## 浏览器兼容性 (browser compatibility)
+
+Chrome >= 45
+
+FireFox >= 34
+
+Safari >= 9
+
+Edge
+
+Not support IE <= 10
+
+
 ## TODO
 
 1. 插件容错：如果用户输入了错误的配置，需要停止编译并提示失败
@@ -128,10 +146,6 @@ module.exports = {
 
    support more git info
 
-3. 支持将用户想要的git info导出到一个文件
-
-   ability to export git info to a file
-
-4. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
+3. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
 
    remove dependent on HtmlWebpackPlugin (hook in HtmlWebpackPlugin  is needed in GitInfoPlugin)
