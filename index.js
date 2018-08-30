@@ -10,12 +10,13 @@ var infoMap = {
     detail: COMMIT_DETAIL
 };
 
-function GitInfoPlugin (options) {
-    this.options = options || {
+function GitInfoPlugin (options = {}) {
+    this.options = Object.assign({
         hotKey: 'ctrl+shift+13',
         hotKeyDelimiter: '+',
-        info: 'detail'
-    };
+        info: 'detail',
+        file: false
+    }, options);
 
     this.gitCommand = infoMap[this.options.info];
 }
@@ -28,6 +29,19 @@ GitInfoPlugin.prototype.apply = function (compiler) {
             this.runGitCommand(this.gitCommand, (err, res) => {
                 if (err) { return callback(err); }
                 commitOutput = res;
+
+                // export git info to file
+                if (this.options.file) {
+                    compilation.assets['gitInfo.md'] = {
+                        source() {
+                            return commitOutput;
+                        },
+                        size() {
+                            return commitOutput.length;
+                        }
+                    };
+                }
+
                 callback();
             });
         });
