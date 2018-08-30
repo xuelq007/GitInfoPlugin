@@ -83,14 +83,14 @@ Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode
 
 需要注意的是`hotKey`中的分隔符应和hotKeyDelimiter中的配置保持一致。
 
-Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`
+Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`.
 
 
 ### `info: 'id' || 'branch' || 'detail'`
 
 通过`info`配置，用户可选择项目中展示的info信息。目前支持`id`, `branch`以及`detail`三种形式。
 
-Currently, it supports 3 types of info: `id`, `branch` and `detail`
+Currently, it supports 3 types of info: `id`, `branch` and `detail`.
 
 
 ### `show: 'console' || 'file' || 'both'`
@@ -116,13 +116,13 @@ user could set custom git command through the option. Note that `info` options w
 
 例子(example) : { command: 'git status' }
 
-**:warning:警告: 请不要使用操作性command，比如'pull','add','delete','revert','merge'等**
+**:warning:警告: 请不要使用操作性command，比如'pull','add','delete','revert','merge'等。**
 
 **:warning:Warning: Please don't use operational git commands which may change current project like 'pull', 'add', 'delete', 'revert', 'merge' etc..**
 
 ## 版本支持 (Webpack version)
 
-该插件支持webpack4及以上.
+该插件支持webpack4及以上。
 
 it supports webpack4 or above.
 
@@ -166,6 +166,6 @@ It's just a plugin for developer, so we don't have to support old browsers, righ
 
 ## TODO
 
- 1. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
+ 1. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）。
 
-   remove dependent on HtmlWebpackPlugin (hook in HtmlWebpackPlugin  is needed in GitInfoPlugin)
+   remove dependent on HtmlWebpackPlugin (hook in HtmlWebpackPlugin  is needed in GitInfoPlugin).
