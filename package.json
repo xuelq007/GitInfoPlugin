@@ -1,11 +1,11 @@
 {
   "name": "git-info-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "it's a webpack4 plugin to help developers get git info in current build ",
   "main": "index.js",
   "scripts": {
     "test": "",
-    "fix": "./node_modules/.bin/eslint index.js --fix"
+    "fix": "./node_modules/.bin/eslint ./ --fix"
   },
   "engines": {
     "node": ">=7"
