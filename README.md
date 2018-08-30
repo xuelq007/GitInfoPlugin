@@ -116,8 +116,9 @@ user could set custom git command through the option. Note that `info` options w
 
 例子(example) : { command: 'git status' }
 
-<font color="red">**警告：请不要使用操作性command，比如'pull','add','delete','revert','merge'**</font>
+**警告 :warning: 请不要使用操作性command，比如'pull','add','delete','revert','merge'等**
 
+**Warning :warning: Please avoid use git commoands which may change current project like 'pull', 'add', 'delete', 'revert', 'merge' etc..**
 
 ## 版本支持 (Webpack version)
 
