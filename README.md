@@ -86,14 +86,14 @@ Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode
 Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`
 
 
-### `info: 'id'`
+### `info: 'id' || 'branch' || 'detail'`
 
 通过`info`配置，用户可选择项目中展示的info信息。目前支持`id`, `branch`以及`detail`三种形式。
 
 Currently, it supports 3 types of info: `id`, `branch` and `detail`
 
 
-### `show: 'console'`
+### `show: 'console' || 'file' || 'both'`
 
 默认为`console`, 即git信息只有用快捷键通过开发者工具中的console显示。
 
