@@ -25,6 +25,9 @@ function GitInfoPlugin (options = {}) {
         command: ''
     }, options);
 
+    this.options.show = [Show.file, Show.console, Show.both].indexOf(this.options.show) > -1
+        ? this.options.show : Show.console;
+
     this.gitCommand = this.options.command.trim().length > 0 ? this.options.command : InfoMap[this.options.info];
 }
 
@@ -34,12 +37,13 @@ GitInfoPlugin.prototype.apply = function (compiler) {
         var hotKeyInfo = this.compileHotKey(this.options);
         var self = this;
         compilation.hooks.optimizeTree.tapAsync('optimize-tree', (chunks, modules, callback) => {
+
             self.runGitCommand(self.gitCommand, (err, res) => {
                 if (err) { return callback(err); }
                 commitOutput = res;
 
                 // export git info to file
-                if (self.options.show === Show.file || self.options.show === Show.both) {
+                if ([Show.file, Show.both].indexOf(self.options.show) > -1) {
                     compilation.assets['gitInfo.md'] = {
                         source() {
                             return commitOutput;
@@ -55,7 +59,8 @@ GitInfoPlugin.prototype.apply = function (compiler) {
         });
 
         compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
-            if (self.options.show === Show.console || self.options.show === Show.both) {
+
+            if ([Show.console, Show.both].indexOf(self.options.show) > -1) {
                 htmlPluginData.html = htmlPluginData.html + ` <script>
                     document.onkeydown = (e) => {
                       e = e || window.event;
