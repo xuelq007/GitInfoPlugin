@@ -4,10 +4,16 @@ var COMMIT_ID = 'git rev-parse HEAD';
 var CURRENT_BRANCH = 'git symbolic-ref --short -q HEAD';
 var COMMIT_DETAIL = 'git log --pretty=format:"%h - %an, %ar : %s"  -1';
 
-var infoMap = {
+var InfoMap = {
     branch: CURRENT_BRANCH,
     id: COMMIT_ID,
     detail: COMMIT_DETAIL
+};
+
+var Show = {
+    file: 'file',
+    console: 'console',
+    both: 'both'
 };
 
 function GitInfoPlugin (options = {}) {
@@ -15,24 +21,25 @@ function GitInfoPlugin (options = {}) {
         hotKey: 'ctrl+shift+13',
         hotKeyDelimiter: '+',
         info: 'detail',
-        file: false,
+        show: Show.console,
         command: ''
     }, options);
 
-    this.gitCommand = this.options.command.trim().length > 0 ? this.options.command : infoMap[this.options.info];
+    this.gitCommand = this.options.command.trim().length > 0 ? this.options.command : InfoMap[this.options.info];
 }
 
 GitInfoPlugin.prototype.apply = function (compiler) {
     compiler.hooks.compilation.tap('compilation', (compilation) => {
         var commitOutput = '';
         var hotKeyInfo = this.compileHotKey(this.options);
+        var self = this;
         compilation.hooks.optimizeTree.tapAsync('optimize-tree', (chunks, modules, callback) => {
-            this.runGitCommand(this.gitCommand, (err, res) => {
+            self.runGitCommand(self.gitCommand, (err, res) => {
                 if (err) { return callback(err); }
                 commitOutput = res;
 
                 // export git info to file
-                if (this.options.file) {
+                if (self.options.show === Show.file || self.options.show === Show.both) {
                     compilation.assets['gitInfo.md'] = {
                         source() {
                             return commitOutput;
@@ -48,20 +55,22 @@ GitInfoPlugin.prototype.apply = function (compiler) {
         });
 
         compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
-            htmlPluginData.html = htmlPluginData.html + ` <script>
-                document.onkeydown = (e) => {
-                  e = e || window.event;
-                  var keyCode = e.keyCode || e.which;
-                  var data = \`${commitOutput}\`;
-                  if (e.shiftKey === ${hotKeyInfo.isShift}
-                      && e.ctrlKey === ${hotKeyInfo.isCtrl}
-                      && e.altKey === ${hotKeyInfo.isAlt}
-                      && keyCode == ${hotKeyInfo.keyCode}) {
+            if (self.options.show === Show.console || self.options.show === Show.both) {
+                htmlPluginData.html = htmlPluginData.html + ` <script>
+                    document.onkeydown = (e) => {
+                      e = e || window.event;
+                      var keyCode = e.keyCode || e.which;
+                      var data = \`${commitOutput}\`;
+                      if (e.shiftKey === ${hotKeyInfo.isShift}
+                          && e.ctrlKey === ${hotKeyInfo.isCtrl}
+                          && e.altKey === ${hotKeyInfo.isAlt}
+                          && keyCode == ${hotKeyInfo.keyCode}) {
 
-                      console.log(data);
-                  }
-                }
-            </script>`;
+                          console.log(data);
+                      }
+                    }
+                </script>`;
+            }
             callback && callback(null, htmlPluginData);
         });
     });
