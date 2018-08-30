@@ -58,7 +58,9 @@ module.exports = {
     new GitInfoPlugin({
         hotKey: 'ctrl+shift+13',
         hotKeyDelimiter: '+',
-        info: 'detail'
+        info: 'detail',
+        show: 'console',
+        command: ''
     }
   ]
 }
@@ -84,19 +86,32 @@ Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode
 Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`
 
 
-
 ### `info: 'id'`
 
 通过`info`配置，用户可选择项目中展示的info信息。目前支持'id', 'branch'以及'detail'三种形式。
 
 Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 
-### `file: false`
 
-是否将git信息导出到文件。默认为false，如果设置为true，git信息将会导出到文件gitInfo.md。
+### `show: console`
 
-if export git info to file (gitInfo.md). default value is false.
+默认为'console', 即git信息只有用快捷键通过开发者工具中的console显示。
 
+‘console’ is default value. it means we could conly get git info from console through hotkey
+
+如果设置为'file'，git信息将会导出到文件gitInfo.md并且无法通过使用快捷键在console中显示。
+'file' means git info will only show in exported file. 
+
+如果设置为'both'，即'console'模式和'file'模式同时开启
+'both' means 'console' mode and 'file' mode are both available.
+
+### `command: ''`
+
+默认不赋值，仅仅使用插件提供的info option当中的选项。用户可以通过'command'配置自定义git command. 自定义后，info配置项将失效。
+
+user could set custom git command through the option. Note that info options will be inactive if user set custom command.
+
+'both' means 'console' mode and 'file' mode are both available.
 ## 版本支持 (Webpack version)
 
 该插件支持webpack4及以上.
@@ -142,14 +157,6 @@ It's just a plugin for developer, so we don't have to support old browsers, righ
 
 ## TODO
 
-1. 插件容错：如果用户输入了错误的配置，需要停止编译并提示失败
-
-   catch compile error and provide error info
-
-2. 可以支持展示更多的git info
-
-   support more git info
-
-3. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
+ 1. 移除对HtmlWebpackPlugin的依赖（当前插件需要用到html-webpack-plugin的hook，将一段script插入到生成的template html当中，这样其实不太好）
 
    remove dependent on HtmlWebpackPlugin (hook in HtmlWebpackPlugin  is needed in GitInfoPlugin)
