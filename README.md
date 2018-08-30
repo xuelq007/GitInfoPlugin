@@ -97,13 +97,16 @@ Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 
 默认为'console', 即git信息只有用快捷键通过开发者工具中的console显示。
 
-‘console’ is default value. it means we could conly get git info from console through hotkey
+‘console’ is default value. it means we could conly get git info from console through hotkey.
 
 如果设置为'file'，git信息将会导出到文件gitInfo.md并且无法通过使用快捷键在console中显示。
+
 'file' means git info will only show in exported file. 
 
-如果设置为'both'，即'console'模式和'file'模式同时开启
+如果设置为'both'，即'console'模式和'file'模式同时开启。
+
 'both' means 'console' mode and 'file' mode are both available.
+
 
 ### `command: ''`
 
@@ -112,11 +115,14 @@ Currently, it supports 3 types of info: 'id', 'branch' and 'detail'
 user could set custom git command through the option. Note that info options will be inactive if user set custom command.
 
 'both' means 'console' mode and 'file' mode are both available.
+
+
 ## 版本支持 (Webpack version)
 
 该插件支持webpack4及以上.
 
 it supports webpack4 or above.
+
 
 ## 依赖 (Dependency)
 
