@@ -15,10 +15,11 @@ function GitInfoPlugin (options = {}) {
         hotKey: 'ctrl+shift+13',
         hotKeyDelimiter: '+',
         info: 'detail',
-        file: false
+        file: false,
+        command: ''
     }, options);
 
-    this.gitCommand = infoMap[this.options.info];
+    this.gitCommand = this.options.command.trim().length > 0 ? this.options.command : infoMap[this.options.info];
 }
 
 GitInfoPlugin.prototype.apply = function (compiler) {
@@ -51,7 +52,7 @@ GitInfoPlugin.prototype.apply = function (compiler) {
                 document.onkeydown = (e) => {
                   e = e || window.event;
                   var keyCode = e.keyCode || e.which;
-                  var data = '${commitOutput}';
+                  var data = \`${commitOutput}\`;
                   if (e.shiftKey === ${hotKeyInfo.isShift}
                       && e.ctrlKey === ${hotKeyInfo.isCtrl}
                       && e.altKey === ${hotKeyInfo.isAlt}
