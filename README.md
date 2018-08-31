@@ -60,7 +60,8 @@ module.exports = {
         hotKeyDelimiter: '+',
         info: 'detail',
         show: 'console',
-        command: ''
+        command: '',
+        filename: 'gitInfo'
     }
   ]
 }
@@ -100,7 +101,7 @@ Currently, it supports 3 types of info: `id`, `branch` and `detail`.
 
 默认为`console`, 即git信息只有用快捷键通过开发者工具中的console显示。
 
-`console` is default value. it means we could conly get git info from console through hotkey.
+`console` is default value. it means we could only get git info from console through hotkey.
 
 如果设置为`file`，git信息将会导出到文件gitInfo.md并且无法通过使用快捷键在console中显示。
 
@@ -122,6 +123,14 @@ user could set custom git command through the option. Note that `info` options w
 **:warning:警告: 请不要使用操作性command，比如'pull','add','delete','revert','merge'等，否则编译过程将会抛错。**
 
 **:warning:Warning: Please don't use operational git commands which may change current project like 'pull', 'add', 'delete', 'revert', 'merge' etc.. or webpack will throw compile error.**
+
+
+### `filename: 'gitInfo'`
+
+用户可自定义导出git信息的文件名，默认值为'gitInfo'，导出文件即为'gitInfo.md'。
+
+user could set custom file name for exported file. by default the name is 'gitInfo.md'.
+
 
 ## 版本支持 (Webpack version)
 
