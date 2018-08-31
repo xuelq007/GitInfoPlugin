@@ -5,7 +5,7 @@
 
 一个非常简单的 [webpack4](https://webpack.js.org/) 插件，用于快速查看本地build的git信息，用于快速定位当前build是基于哪次提交。
 
-A very simple webpack4 plugin which is used to check git info of local build. it helps developers know current build is based on which commition.
+A very simple webpack4 plugin which is used to check git info of local build. it helps developers know which commit current build is based on.
 
 ## 使用(Usage)
 
@@ -25,9 +25,9 @@ module.exports = {
 }
 ```
 
-构建完成后，打开网页，输入快捷键(默认ctrl + shift + Enter)，打开浏览器开发者工具，可以看到当前build的最新一次git commit id.
+构建完成后，打开网页，输入快捷键(默认ctrl + shift + Enter)，打开浏览器开发者工具，在console中可以看到当前build的最新一次git commit id.
 
-open webpage and input default shortcut (ctrl + shift + enter), then open develper tools (chrome, firefox etc..). you could see newest commition id in console: 
+open webpage and input default shortcut (ctrl + shift + enter), then open develper tools (chrome, firefox etc..). you could see newest commit id in console: 
 
 ```
 c698cec1c6c22641692c716535dfcb21492c41ed
@@ -42,7 +42,7 @@ dev
 `detail`
 
 ```
-c698cec1 - lq007, 2 days ago : 优化项目代码
+c698cec1 - lq007, 2 days ago : Fix some bugs
 ```
 
 
@@ -78,12 +78,15 @@ user could add custom hotkey delimiter like '#','%' etc..
 通过设置`hotKey`用户可自定义快捷键以免与项目已有快捷键冲突。目前支持的快捷方式是Ctrl或Shift或Alt任意组合再加键盘的keyCode，
 比如回车键(Enter)的keyCode是13.
 
-Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode. for example: ctrl+shift+13 (13 is Enter keyCode).
+Currently, legal hot keys are 'Ctrl' or 'Shift' or 'Alt' associated with keyCode. for example: ctrl+shift+13 (13 is Enter keyCode) or ctrl+13
 
 
-需要注意的是`hotKey`中的分隔符应和hotKeyDelimiter中的配置保持一致。
+:warning: 注意: 1. `hotKey`中的分隔符应和hotKeyDelimiter中的配置保持一致。
+               2. hotKey之间不允许出现空格
+     
 
-Note: the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`.
+:warning: Note: 1. the delimiter in config `hotKey` should be consistent with that in config `hotKeyDelimiter`.
+                2. there should be no space between hotkeys.
 
 
 ### `info: 'id' || 'branch' || 'detail'`
