@@ -9,6 +9,7 @@ function GitInfoPlugin (options = {}) {
         hotKeyDelimiter: '+',
         info: 'detail',
         show: Show.console,
+        filename: 'gitInfo',
         command: ''
     }, options);
 

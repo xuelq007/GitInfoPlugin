@@ -44,7 +44,7 @@ GitRunner.prototype.execCommand = function (command, callback) {
 };
 
 GitRunner.prototype.isCommandDangerous = function (command) {
-    return ['pull', 'push', 'merge', 'fetch', 'commit', 'add', 'revert', 'delete', 'reset'].some(keyword => {
+    return ['pull', 'push', 'merge', 'fetch', 'commit', 'add', 'revert', 'delete', 'reset','mv','checkout','stash'].some(keyword => {
         return command.indexOf(keyword) > -1;
     });
 };
