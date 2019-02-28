@@ -5,7 +5,7 @@
 
 一个非常简单的 [webpack4](https://webpack.js.org/) 插件，用于快速查看本地build的git信息，用于快速定位当前build是基于哪次提交。
 
-A very simple webpack4 plugin which is used to check git info of local build. it helps developers know which commit current build is based on.
+A very simple webpack4 plugin which is used to check git info of local build. it helps developers know which commit the current build is based on.
 
 ## 使用(Usage)
 
