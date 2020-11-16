@@ -2,7 +2,7 @@ var Show = require('../model/show');
 var moment = require('moment');
 
 function HotKeyRunner() {
-    this.timeStamp = moment().format('YYYY MM DD, hh:mm:ss');
+    this.timeStamp = moment().format('YYYY-MM-DD, HH:mm:ss');
 }
 
 
@@ -59,7 +59,7 @@ HotKeyRunner.prototype.setConsole = function(hotKeyInfo, options, htmlPluginData
                   && keyCode == ${hotKeyInfo.keyCode}) {
 
                   console.log(data);
-                  console.log('构建日期: ' + timeStamp);
+                  console.log('build date: ' + timeStamp);
               }
             }
         </script>`;
