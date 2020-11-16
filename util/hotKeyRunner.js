@@ -1,7 +1,8 @@
 var Show = require('../model/show');
+var moment = require('moment');
 
 function HotKeyRunner() {
-
+    this.timeStamp = moment().format('YYYY MM DD, hh:mm:ss');
 }
 
 
@@ -51,12 +52,14 @@ HotKeyRunner.prototype.setConsole = function(hotKeyInfo, options, htmlPluginData
               e = e || window.event;
               var keyCode = e.keyCode || e.which;
               var data = \`${commandOutput}\`;
+              var timeStamp = \`${this.timeStamp}\`;
               if (e.shiftKey === ${hotKeyInfo.isShift}
                   && e.ctrlKey === ${hotKeyInfo.isCtrl}
                   && e.altKey === ${hotKeyInfo.isAlt}
                   && keyCode == ${hotKeyInfo.keyCode}) {
 
                   console.log(data);
+                  console.log('构建日期: ' + timeStamp);
               }
             }
         </script>`;
