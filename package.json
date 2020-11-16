@@ -1,6 +1,6 @@
 {
   "name": "git-info-plugin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "it's a webpack4 plugin to help developers get git info in current build ",
   "main": "index.js",
   "scripts": {
