@@ -46,9 +46,9 @@ HotKeyRunner.prototype.compileKeys = (options) => {
 };
 
 HotKeyRunner.prototype.setConsole = function(hotKeyInfo, options, htmlPluginData, commandOutput) {
+    var self = this;
     if ([Show.console, Show.both].indexOf(options.show) > -1) {
         htmlPluginData.html = htmlPluginData.html + ` <script>
-            var self = this;
             document.onkeydown = function(e) {
               e = e || window.event;
               var keyCode = e.keyCode || e.which;
