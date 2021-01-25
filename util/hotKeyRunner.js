@@ -48,11 +48,12 @@ HotKeyRunner.prototype.compileKeys = (options) => {
 HotKeyRunner.prototype.setConsole = function(hotKeyInfo, options, htmlPluginData, commandOutput) {
     if ([Show.console, Show.both].indexOf(options.show) > -1) {
         htmlPluginData.html = htmlPluginData.html + ` <script>
-            document.onkeydown = (e) => {
+            var self = this;
+            document.onkeydown = function(e) {
               e = e || window.event;
               var keyCode = e.keyCode || e.which;
               var data = \`${commandOutput}\`;
-              var timeStamp = \`${this.timeStamp}\`;
+              var timeStamp = \`${self.timeStamp}\`;
               if (e.shiftKey === ${hotKeyInfo.isShift}
                   && e.ctrlKey === ${hotKeyInfo.isCtrl}
                   && e.altKey === ${hotKeyInfo.isAlt}
